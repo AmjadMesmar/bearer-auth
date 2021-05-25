@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>bearer-auth</h1>
+<h2>About</h2>
+<p>The server will allow users to sign up and sign in using bearer authentication, when siging up, it will give the use a token that they can use to sign in. Besides, the sever allows basic authentication for both signing up and signing in.</p>
+<hr>
+<h2>Author</h2>
+<h4>Amjad Mesmar</h4>
+<hr>
+<h2>Links</h2>
+<ul>
+<li>
+<p><a href="https://github.com/AmjadMesmar/bearer-auth">Repo</a></p>
+</li>
+<li>
+<p><a href="https://github.com/AmjadMesmar/bearer-auth/pull/1">Submission Pull Request</a></p>
+</li>
+<li>
+<p><a href="https://souls-bearer-auth.herokuapp.com/">Deployed App</a></p>
+</li>
+<li>
+<p><a href="https://github.com/AmjadMesmar/bearer-auth/actions">Action Report</a></p>
+</li>
+</ul>
+<hr>
+<h2>Setup</h2>
+<ol>
+<li><em><strong>(.env)</strong></em> file:</li>
+</ol>
+<pre class="prettyprint source"><code>
+PORT=5000
+MONGODB_URI=mongodb+srv://souls:55555@cluster0.upvew.mongodb.net/bearer-auth
+SECRET=5555
+
+</code></pre>
+<ol start="2">
+<li>Install the following dependencies</li>
+</ol>
+<pre class="prettyprint source"><code>
+&quot;dependencies&quot;: {
+&quot;@code-fellows/supergoose&quot;: &quot;^1.1.0&quot;,
+    &quot;base-64&quot;: &quot;^1.0.0&quot;,
+    &quot;bcrypt&quot;: &quot;^5.0.1&quot;,
+    &quot;cookie-parser&quot;: &quot;^1.4.5&quot;,
+    &quot;cors&quot;: &quot;^2.8.5&quot;,
+    &quot;dotenv&quot;: &quot;^10.0.0&quot;,
+    &quot;express&quot;: &quot;^4.17.1&quot;,
+    &quot;express-session&quot;: &quot;^1.17.2&quot;,
+    &quot;jsonwebtoken&quot;: &quot;^8.5.1&quot;,
+    &quot;mongoose&quot;: &quot;^5.12.11&quot;,
+    &quot;morgan&quot;: &quot;^1.10.0&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;jest&quot;: &quot;^27.0.1&quot;,
+    &quot;supergoose&quot;: &quot;^0.2.6&quot;,
+    &quot;supertest&quot;: &quot;^6.1.3&quot;
+  }
+
+</code></pre>
+<br>
+<h2>Running the app</h2>
+<ol>
+<li>clone the repo.</li>
+<li>Enter the command <code>npm start</code></li>
+<li>Use endpoints :</li>
+</ol>
+<br>
+<h2>signup</h2>
+<h3><code>*/signup</code></h3>
+<br>
+<ul>
+<li><strong>Method</strong>: post</li>
+<li><em><strong>Basic Authentication sign up and will give token</strong></em></li>
+<li><strong>Response Body</strong>: JSON</li>
+</ul>
+<pre class="prettyprint source"><code>
+{
+    &quot;user&quot;: {
+        &quot;_id&quot;: &quot;60ad70100202017cbf68f834&quot;,
+        &quot;username&quot;: &quot;melon2&quot;,
+        &quot;password&quot;: &quot;$2b$10$2FxLGO3HXYRlRFuyXUtjauN7UsdTmS.O89Q/Dnf4/bFTR0bXJeP52&quot;,
+        &quot;__v&quot;: 0
+    },
+    &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1lbG9uMiIsImlhdCI6MTYyMTk3OTE1MywiZXhwIjoxNjIxOTc5NzUzfQ.ZWh7F9MuFgKwuwZgekjcMYszmMN0WFII_kIvmNM-B7Q&quot;
+}
+
+</code></pre>
+<h2>Signin</h2>
+<h3><code>*/signin</code></h3>
+<br>
+<ul>
+<li><strong>Method</strong>: POST</li>
+<li><em><strong>Basic Authentication Login</strong></em></li>
+<li><strong>Response Body</strong>: JSON</li>
+</ul>
+<pre class="prettyprint source"><code>
+{
+    &quot;user&quot;: {
+        &quot;_id&quot;: &quot;60ad70100202017cbf68f834&quot;,
+        &quot;username&quot;: &quot;melon2&quot;,
+        &quot;password&quot;: &quot;$2b$10$2FxLGO3HXYRlRFuyXUtjauN7UsdTmS.O89Q/Dnf4/bFTR0bXJeP52&quot;,
+        &quot;__v&quot;: 0
+    },
+    &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1lbG9uMiIsImlhdCI6MTYyMTk3OTIyMywiZXhwIjoxNjIxOTc5ODIzfQ.wLI4_OxNqJ1USPu7TNZAYS9YokZngDY02NLbD9-AgJc&quot;
+}
+
+</code></pre>
+<br>
+<h2>secret</h2>
+<h3><code>*/secret</code></h3>
+<br>
+<ul>
+<li><strong>Method</strong>: get</li>
+<li><em><strong>Sign in using bearer authentication using token and secret</strong></em></li>
+<li><strong>Response Body</strong>: Text</li>
+</ul>
+<pre class="prettyprint source"><code>
+ Welcome to the secret area!
+
+
+</code></pre>
+<br>
+<ol start="4">
+<li>Test:</li>
+</ol>
+<ul>
+<li>To test the server write in terminal:</li>
+</ul>
+<pre class="prettyprint source"><code>npm test
+</code></pre>
+<p><br><br><br></p>
+<hr>
+<p><br><br></p>
+<h2>UML Diagram</h2>
+<p><img src="./Bearer-Auth.png" alt="Uml diagram"></p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Wed May 26 2021 01:25:33 GMT+0300 (Eastern European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
